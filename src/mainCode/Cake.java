@@ -23,7 +23,14 @@ public class Cake {
 		g.drawString("Panic cake", (int)x, (int)y);
 	}
 	
-	
+	public boolean intersect(Ball ball){
+		return false;
+	}
+
+	public boolean inPanick() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 
 }

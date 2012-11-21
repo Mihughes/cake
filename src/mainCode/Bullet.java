@@ -15,8 +15,30 @@ public class Bullet {
 		this.velocity = velocity;
 	}
 	
+	public void setInitialAngle(double angle) {
+		
+	}
+	
+	public boolean intersect(Ball ballObject) {
+		return false;
+	}
+	
 	public boolean isHittingBall() {
 		return true;
+	}
+	
+	public void setPosition(double x, double y) {
+		
+	}
+
+	public double calculateXPosition(double time) {
+		// TODO Auto-generated method stub
+		return 0.0;
+	}
+
+	public double calculateYPosition(double time) {
+		// TODO Auto-generated method stub
+		return 0.0;
 	}
 
 }
