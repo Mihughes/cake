@@ -13,10 +13,10 @@ import javax.swing.JPanel;
 public class SaveTheCake extends JPanel implements MouseListener{  
 	private static int frameSizeX;
 	private static int frameSizeY;
-	Ball ball = new Ball();
-	Canon canon = new Canon();
-	Bullet bullet = new Bullet();
-	Cake cake = new Cake();
+	private Ball ball = new Ball();
+	private Canon canon = new Canon();
+	private Bullet bullet = new Bullet();
+	private Cake cake = new Cake();
 	
 	public SaveTheCake() {
 		frameSizeX = 500;
@@ -25,6 +25,7 @@ public class SaveTheCake extends JPanel implements MouseListener{
 	
 	
 	public void paintComponent(Graphics g) {
+		super.paintComponents(g);
 		ball.draw(g, 80, 80, 20, Color.CYAN);
 		canon.draw(g, 10, 80, 45);
 		bullet.draw(g,  200, 80, 100);
@@ -33,24 +34,21 @@ public class SaveTheCake extends JPanel implements MouseListener{
 	}
 	
 	// mouse methods
-		@Override
-		public void mouseClicked(MouseEvent arg0) {}
+	@Override
+	public void mouseClicked(MouseEvent arg0) {}
 
-		@Override
-		public void mouseEntered(MouseEvent arg0) {}
+	@Override
+	public void mouseEntered(MouseEvent arg0) {}
 
-		@Override
-		public void mouseExited(MouseEvent arg0) {}
-			
-		@Override
-		public void mousePressed(MouseEvent arg0) {}
-			
-		@Override
-		public void mouseReleased(MouseEvent arg0) {}
-	
-	/**
-	 * @param args
-	 */
+	@Override
+	public void mouseExited(MouseEvent arg0) {}
+		
+	@Override
+	public void mousePressed(MouseEvent arg0) {}
+		
+	@Override
+	public void mouseReleased(MouseEvent arg0) {}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		JFrame frame = new JFrame();

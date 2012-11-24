@@ -39,6 +39,7 @@ public class InitTests {
 		assertTrue(cakeObject.intersect(ballObject));
 	}
 	
+	@Test
 	public void pathTest() {
 		Bullet bulletObject = new Bullet();
 		Ball ballObject = new Ball();
@@ -56,6 +57,7 @@ public class InitTests {
 		
 	}
 	
+	@Test
 	// Test whether cake is in Panick mode
 	public void cakePanickTest() {
 		Ball ballObject = new Ball();
