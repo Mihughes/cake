@@ -5,9 +5,9 @@ import java.awt.Point;
 import java.awt.geom.Ellipse2D;
 
 public class Bullet {
-	private int x;
-	private int y;
-	private int velocity;
+	private double x;
+	private double y;
+	private double velocity;
 	
 	public Bullet(){
 		this.x = 200;
@@ -15,28 +15,28 @@ public class Bullet {
 		this.velocity = 100;
 	}
 	
-	public Bullet(int x, int y, int velocity){
+	public Bullet(double x, double y, double velocity){
 		this.x = x;
 		this.y = y;
 		this.velocity = velocity;
 	}
 	
 	public void draw(Graphics g) {
-		g.drawString("Bullet", x, y);
+		g.drawString("Bullet", (int) x, (int) y);
 	}
 	
-	public void setVelocity(int velocity) {
+	public void setVelocity(double velocity) {
 		this.velocity = velocity;
 	}
 	
-	public void setInitialAngle(int angle) {
+	public void setInitialAngle(double angle) {
 		
 	}
 	
 	public boolean intersect(Ball ball) {
 		Ellipse2D.Double circle = new Ellipse2D.Double(ball.getX(), ball.getY(), ball.getDiameter(), ball.getDiameter());
-		for (int i = x - 5; i < x + 6; i++){
-			for (int j = y - 5; j < y + 6; j++){
+		for (int i = (int) x - 5; i < x + 6; i++){
+			for (int j = (int) y - 5; j < y + 6; j++){
 				if (circle.contains(new Point(i, j)))
 					return true;
 			}
@@ -48,7 +48,7 @@ public class Bullet {
 		return true;
 	}
 	
-	public void setPosition(int x, int y) {
+	public void setPosition(double x, double y) {
 		this.x = x;
 		this.y = y;
 	}
