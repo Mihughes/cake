@@ -63,11 +63,11 @@ public class InitTests {
 		Ball ballObject = new Ball();
 		Cake cakeObject = new Cake();
 		
-		ballObject.setPosition(400, 300);
-		assertTrue(cakeObject.inPanick());
+		ballObject.setPosition(500, 400);
+		assertTrue(cakeObject.inPanick(ballObject));
 		
-		ballObject.setPosition(400, 300);
-		assertTrue(cakeObject.inPanick());
+		ballObject.setPosition(450, 350);
+		assertTrue(cakeObject.inPanick(ballObject));
 		
 		
 	}

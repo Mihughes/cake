@@ -44,8 +44,12 @@ public class Cake {
 		return false;
 	}
 
-	public boolean inPanick() {
-		// TODO Auto-generated method stub
+	public boolean inPanick(Ball ball) {
+		for (int i = (int) x; i < x + 101; i++){
+			for (int j = (int) y; j > y - 151; j--)
+				if (Math.sqrt((ball.getX()-x)*(ball.getX()-x) + (ball.getY()-y)*(ball.getX()-x)) <= ball.getDiameter()/2)
+					return true;
+		}
 		return false;
 	}
 	
