@@ -6,31 +6,32 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
 
 public class SaveTheCake extends JPanel implements MouseListener{  
-	private static int frameSizeX;
-	private static int frameSizeY;
-	private Ball ball = new Ball();
-	private Canon canon = new Canon();
-	private Bullet bullet = new Bullet();
-	private Cake cake = new Cake();
+	public static final int FRAME_SIZE_X = 700;
+	public static final int FRAME_SIZE_Y = 500;
+	private Ball ball;
+	private Canon canon;
+	private Bullet bullet;
+	private Cake cake;
 	
 	public SaveTheCake() {
-		frameSizeX = 500;
-		frameSizeY = 500;
+		ball = new Ball(FRAME_SIZE_X - 50, 50, 50, Color.GREEN);
+		canon = new Canon(100, FRAME_SIZE_Y - 50, 45);
+		bullet = new Bullet();
+		cake = new Cake();
 	}
-	
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponents(g);
-		ball.draw(g, 80, 80, 20, Color.CYAN);
-		canon.draw(g, 10, 80, 45);
+		ball.draw(g);
+		canon.draw(g);
 		bullet.draw(g,  200, 80, 100);
 		cake.draw(g, 400, 440);
-		
 	}
 	
 	// mouse methods
@@ -48,17 +49,5 @@ public class SaveTheCake extends JPanel implements MouseListener{
 		
 	@Override
 	public void mouseReleased(MouseEvent arg0) {}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		JFrame frame = new JFrame();
-		SaveTheCake saveTheCake = new SaveTheCake();
-		frame.setContentPane(saveTheCake);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(frameSizeX,frameSizeY);
-		frame.setBackground(Color.BLACK);
-		frame.setVisible(true);
-
-	}
 
 }

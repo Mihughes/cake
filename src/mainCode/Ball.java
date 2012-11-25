@@ -7,12 +7,25 @@ import java.awt.Point;
 import java.awt.geom.Point2D;
 
 public class Ball {
-	private double x;
-	private double y;
-	private double diameter;
+	private int x;
+	private int y;
+	private int diameter;
 	private Color color;
 	private double slope;
 	
+	public Ball(int x, int y, int diameter, Color color){
+		this.x = x;
+		this.y = y;
+		this.diameter = diameter;
+		this.color = color;
+	}
+	
+	public Ball(){
+		this.x = 80;
+		this.y = 80;
+		this.diameter = 20;
+		this.color = Color.CYAN;
+	}
 	
 	public double getSlope() {
 		return slope;
@@ -22,10 +35,10 @@ public class Ball {
 		this.slope = slope;
 	}
 
-	public void draw(Graphics g, double x, double y, double diameter, Color color ) {
+	public void draw(Graphics g) {
 		//Graphics2D g2 = (Graphics2D) g;
 		g.setColor(color);
-		g.drawString("DrawBall", (int)x, (int)y);
+		g.fillOval(x, y, diameter, diameter);
 	}
 	
 	public void getIcon () {
