@@ -27,14 +27,14 @@ public class InitTests {
 	@Test
 	public void collisionTest() {
 		Ball ballObject = new Ball();
-		ballObject.setPosition(400.0, 300.0);
+		ballObject.setPosition(400, 300);
 		Bullet bulletObject = new Bullet();
 		bulletObject.setPosition(405, 305);
 		Cake cakeObject = new Cake();
 		
 		assertTrue(bulletObject.intersect(ballObject));
 		
-		ballObject.setPosition(0.0, 0.0);
+		ballObject.setPosition(455, 450);
 		
 		assertTrue(cakeObject.intersect(ballObject));
 	}
@@ -50,7 +50,7 @@ public class InitTests {
 		assertTrue(63.776 == ballObject.calculateYPosition(3.608));	
 		
 		//Test bullet Path
-		bulletObject.setInitialAngle(45.0);
+		bulletObject.setInitialAngle(45);
 		assertTrue(255.102 == bulletObject.calculateXPosition(7.215));
 		assertTrue(63.776 == bulletObject.calculateYPosition(3.608));	
 		
@@ -63,10 +63,10 @@ public class InitTests {
 		Ball ballObject = new Ball();
 		Cake cakeObject = new Cake();
 		
-		ballObject.setPosition(400.0, 300.0);
+		ballObject.setPosition(400, 300);
 		assertTrue(cakeObject.inPanick());
 		
-		ballObject.setPosition(400.0, 300.0);
+		ballObject.setPosition(400, 300);
 		assertTrue(cakeObject.inPanick());
 		
 		
