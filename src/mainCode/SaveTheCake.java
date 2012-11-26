@@ -43,13 +43,14 @@ public class SaveTheCake extends JPanel implements MouseListener{
 	public void mainFlow(){
 		while (!cake.intersect(ball)){
 			try {
-			    Thread.sleep(20);
+			    Thread.sleep(50);
 			} catch(InterruptedException e) {
 				System.out.println(e);
 			}
 			ball.rolling();
 			repaint();
 		}
+		repaint();
 	}
 	
 	// mouse methods
