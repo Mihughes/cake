@@ -48,7 +48,7 @@ public class Ball {
 	}
 	
 	public void rolling() {
-		setPosition(calculateXPosition(5),calculateYPosition(5));
+		setPosition(calculateXPosition(3),calculateYPosition(3));
 	}
 	
 	public void explode () {

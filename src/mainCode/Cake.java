@@ -38,7 +38,7 @@ public class Cake {
 	
 	public boolean intersect(Ball ball){
 		int i = (int) x;
-		for (int j = (int) y - 20 ; j < y + 1; j++)
+		for (int j = (int) y - 10 ; j < y + 1; j++)
 			if (Math.sqrt((ball.getX()-i)*(ball.getX()-i) + (ball.getY()-j)*(ball.getX()-j)) <= ball.getDiameter()/2){
 				smashed = true;
 				return true;

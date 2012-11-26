@@ -26,13 +26,23 @@ public class Canon {
 	}
 	
 	public void draw(Graphics g) {
+		drawAngle(g);
 		g.setColor(Color.DARK_GRAY);
 		g.drawImage(canon, (int) x, (int) y, null);
-		drawAngle(g);
 	}
 	
 	public void drawAngle(Graphics g) {
-		g.setColor(Color.BLUE);
+		g.setColor(Color.RED);
+		int originalX = 20;
+		int originalY = 460;
+		for (int i = 0; i <= 90; i = i + 10){
+			double angle = i * Math.PI / 180;
+			int startX = (int) (originalX + 60 * Math.sin(angle));
+			int startY = (int) (originalY - 60 * Math.cos(angle));
+			int endX = (int) (originalX + 90 * Math.sin(angle));
+			int endY = (int) (originalY - 90 * Math.cos(angle));
+			g.drawLine(startX, startY, endX, endY);
+		}
 	}
 	
 	
