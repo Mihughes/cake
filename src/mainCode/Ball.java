@@ -67,14 +67,12 @@ public class Ball {
 	}
 
 	public double calculateXPosition(double d) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+        return Math.round(x + (d  * Math.sin(Math.toRadians(slope)))); 
+    }
 
-	public double calculateYPosition(double d) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    public double calculateYPosition(double d) {
+        return Math.round(y + (d  * Math.cos(Math.toRadians(slope))));
+    }
 
 	public double getX() {
 		return x;

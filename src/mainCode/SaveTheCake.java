@@ -28,7 +28,7 @@ public class SaveTheCake extends JPanel implements MouseListener{
 		ball = new Ball(FRAME_SIZE_X - OFFSET - 15, OFFSET - 40 , OFFSET, Color.GREEN);
 		canon = new Canon(100, FRAME_SIZE_Y - OFFSET, OFFSET);
 		bullet = new Bullet(100, FRAME_SIZE_Y - OFFSET, OFFSET);
-		cake = new Cake(FRAME_SIZE_X - 250, FRAME_SIZE_Y - OFFSET);
+		cake = new Cake(FRAME_SIZE_X - 230, FRAME_SIZE_Y - 145);
 	}
 	
 	public void paintComponent(Graphics g) {

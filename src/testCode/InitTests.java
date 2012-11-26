@@ -39,23 +39,30 @@ public class InitTests {
 		assertTrue(cakeObject.intersect(ballObject));
 	}
 	
-	@Test
-	public void pathTest() {
-		Bullet bulletObject = new Bullet();
-		Ball ballObject = new Ball();
-	
-		//Test ball Path
-		ballObject.setSlope(45.0);
-		assertTrue(255.102 == ballObject.calculateXPosition(7.215));
-		assertTrue(63.776 == ballObject.calculateYPosition(3.608));	
-		
-		//Test bullet Path
-		bulletObject.setInitialAngle(45);
-		assertTrue(255.102 == bulletObject.calculateXPosition(7.215));
-		assertTrue(63.776 == bulletObject.calculateYPosition(3.608));	
-		
-		
-	}
+	 @Test
+	    public void pathTest() {
+	        Bullet bulletObject = new Bullet();
+	        Ball ballObject = new Ball();
+	    
+	        //Test ball Path
+	        ballObject.setSlope(45.0);
+	        bulletObject.setInitialAngle(45.0);
+	        double ballX = 250;
+	        double ballY = 60;
+	        double distanceForX = 7.215;
+	        double distanceForY = 3.608;
+	        ballObject.setPosition(ballX, ballY);
+	        //bulletObject.setPosition(ballX,  ballY);
+	        //bulletObject.setVelocity(10); //not used yet
+
+	        assertTrue((int)255.102 == ballObject.calculateXPosition(distanceForX));
+	        assertTrue((int)63.776 == ballObject.calculateYPosition(distanceForY));    
+	        
+	        //Test bullet Path
+	        bulletObject.setInitialAngle(45);
+	        assertTrue((int)255.102 == bulletObject.calculateXPosition(distanceForX));
+	        assertTrue((int)63.776 == bulletObject.calculateYPosition(distanceForY));    
+	        }
 	
 	@Test
 	// Test whether cake is in Panick mode
