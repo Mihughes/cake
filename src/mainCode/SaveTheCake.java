@@ -53,6 +53,22 @@ public class SaveTheCake extends JPanel implements MouseListener{
 		repaint();
 	}
 	
+	public Ball getBall() {
+		return ball;
+	}
+
+	public Canon getCanon() {
+		return canon;
+	}
+
+	public Bullet getBullet() {
+		return bullet;
+	}
+
+	public Cake getCake() {
+		return cake;
+	}
+
 	// mouse methods
 	@Override
 	public void mouseClicked(MouseEvent arg0) {}
