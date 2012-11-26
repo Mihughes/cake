@@ -18,11 +18,13 @@ public class Ball {
 		this.y = y;
 		this.diameter = diameter;
 		this.color = color;
+		this.slope = 18;
 	}
 	
 	public Ball(){
 		this.x = 80;
 		this.y = 80;
+		this.slope = 45;
 		this.diameter = 20;
 		this.color = Color.CYAN;
 	}
@@ -46,7 +48,7 @@ public class Ball {
 	}
 	
 	public void rolling() {
-		System.out.println("at Ball.rolling().");
+		setPosition(calculateXPosition(5),calculateYPosition(5));
 	}
 	
 	public void explode () {
@@ -67,7 +69,7 @@ public class Ball {
 	}
 
 	public double calculateXPosition(double d) {
-        return Math.round(x + (d  * Math.sin(Math.toRadians(slope)))); 
+        return Math.round(x - (d  * Math.sin(Math.toRadians(slope)))); 
     }
 
     public double calculateYPosition(double d) {

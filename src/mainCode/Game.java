@@ -18,6 +18,7 @@ public class Game extends JFrame{
 		setSize(SaveTheCake.FRAME_SIZE_X + 90, SaveTheCake.FRAME_SIZE_Y - 10);
 		addFeatures();
 		setVisible(true);
+		gamePanel.mainFlow();
 	}
 	
 	public void addFeatures(){
