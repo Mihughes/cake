@@ -2,9 +2,11 @@ package mainCode;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -19,9 +21,11 @@ public class SaveTheCake extends JPanel implements MouseListener{
 	private Canon canon;
 	private Bullet bullet;
 	private Cake cake;
+	private Image bground;
 	
 	public SaveTheCake() {
-		ball = new Ball(FRAME_SIZE_X - OFFSET, OFFSET, OFFSET, Color.GREEN);
+		this.bground = new ImageIcon("background.png").getImage();
+		ball = new Ball(FRAME_SIZE_X - OFFSET - 15, OFFSET - 40 , OFFSET, Color.GREEN);
 		canon = new Canon(100, FRAME_SIZE_Y - OFFSET, OFFSET);
 		bullet = new Bullet(100, FRAME_SIZE_Y - OFFSET, OFFSET);
 		cake = new Cake(FRAME_SIZE_X - 250, FRAME_SIZE_Y - OFFSET);
@@ -29,6 +33,7 @@ public class SaveTheCake extends JPanel implements MouseListener{
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponents(g);
+		g.drawImage(bground, 2, 5, null);
 		ball.draw(g);
 		canon.draw(g);
 		bullet.draw(g);

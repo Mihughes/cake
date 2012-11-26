@@ -5,6 +5,8 @@ import java.awt.BorderLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 
 public class ControlPanel extends JPanel{
 	private JButton shootButton;
@@ -21,5 +23,6 @@ public class ControlPanel extends JPanel{
 		angleSlider.setPaintLabels(true);
 		add(angleSlider, BorderLayout.CENTER);
 		add(shootButton, BorderLayout.SOUTH);
+		setBorder(new TitledBorder (new EtchedBorder(), "Control"));
 	}
 }
