@@ -14,7 +14,8 @@ public class Game extends JFrame{
 		controlPanel = new ControlPanel();
 		JOptionPane.showMessageDialog(null, "Please be ready, use the arrow keys to aim and Shoot button to shoot", "Welcome to Save The Cake", JOptionPane.INFORMATION_MESSAGE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(SaveTheCake.FRAME_SIZE_X + 100, SaveTheCake.FRAME_SIZE_Y);
+		setResizable(false);
+		setSize(SaveTheCake.FRAME_SIZE_X + 90, SaveTheCake.FRAME_SIZE_Y - 10);
 		addFeatures();
 		setVisible(true);
 	}

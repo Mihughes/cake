@@ -26,7 +26,7 @@ public class SaveTheCake extends JPanel implements MouseListener{
 	public SaveTheCake() {
 		this.bground = new ImageIcon("background.png").getImage();
 		ball = new Ball(FRAME_SIZE_X - OFFSET - 15, OFFSET - 40 , OFFSET, Color.GREEN);
-		canon = new Canon(100, FRAME_SIZE_Y - OFFSET, OFFSET);
+		canon = new Canon(10, FRAME_SIZE_Y - 80, 45);
 		bullet = new Bullet(100, FRAME_SIZE_Y - OFFSET, OFFSET);
 		cake = new Cake(FRAME_SIZE_X - 230, FRAME_SIZE_Y - 145);
 	}
