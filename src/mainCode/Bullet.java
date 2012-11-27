@@ -1,8 +1,11 @@
 package mainCode;
 
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.geom.Ellipse2D;
+
+import javax.swing.ImageIcon;
 
 public class Bullet {
 	private double x;
@@ -10,6 +13,7 @@ public class Bullet {
 	private double velocity;
 	private double angle;
 	private final static double GRAVITY = 9.81;
+	private Image bullet;
 	
 	public Bullet(){
 		this.x = 200;
@@ -21,10 +25,11 @@ public class Bullet {
 		this.x = x;
 		this.y = y;
 		this.velocity = velocity;
+		bullet = new ImageIcon("bullet.png").getImage();
 	}
 	
 	public void draw(Graphics g) {
-		g.drawString("Bullet", (int) x, (int) y);
+		g.drawImage(bullet, (int) x, (int) y, null);
 	}
 	
 	public void setVelocity(double velocity) {
