@@ -17,6 +17,7 @@ public class InitTests {
 	private static SaveTheCake cake;
 	private static final double GRAVITY_CONSTANT = 9.8;
 	private static final double VELOCITY = 50;
+	private static final double DELTA = 0.0005;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -52,16 +53,17 @@ public class InitTests {
 	        double distanceForX = 7.215;
 	        double distanceForY = 3.608;
 	        ballObject.setPosition(ballX, ballY);
+			double time = 5; 
 	        //bulletObject.setPosition(ballX,  ballY);
 	        //bulletObject.setVelocity(10); //not used yet
-
-	        assertTrue((int)255.102 == ballObject.calculateXPosition(distanceForX));
-	        assertTrue((int)63.776 == ballObject.calculateYPosition(distanceForY));    
+	        
+			assertEquals(245.0, ballObject.calculateXPosition(distanceForX), DELTA);
+			assertEquals(63.0, ballObject.calculateYPosition(distanceForY), DELTA);   
 	        
 	        //Test bullet Path
 	        bulletObject.setInitialAngle(45);
-	        assertTrue((int)255.102 == bulletObject.calculateXPosition(distanceForX));
-	        assertTrue((int)63.776 == bulletObject.calculateYPosition(distanceForY));    
+			assertEquals(235.0, bulletObject.calculateXPosition(time), DELTA);
+			assertEquals(167.0, bulletObject.calculateYPosition(time), DELTA);    
 	        }
 	
 	@Test

@@ -28,12 +28,12 @@ public class SaveTheCake extends JPanel implements MouseListener{
 		ball = new Ball(FRAME_SIZE_X - OFFSET - 15, OFFSET - 40 , OFFSET, Color.GREEN);
 		canon = new Canon(10, FRAME_SIZE_Y - 80, 45);
 		bullet = new Bullet(100, FRAME_SIZE_Y - OFFSET, OFFSET);
-		cake = new Cake(FRAME_SIZE_X - 230, FRAME_SIZE_Y - 145);
+		cake = new Cake(FRAME_SIZE_X - 230, FRAME_SIZE_Y - 150);
 	}
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponents(g);
-		g.drawImage(bground, 2, 5, null);
+		g.drawImage(bground, 1, 1, null);
 		canon.draw(g);
 		bullet.draw(g);
 		cake.draw(g);
@@ -43,15 +43,32 @@ public class SaveTheCake extends JPanel implements MouseListener{
 	public void mainFlow(){
 		while (!cake.intersect(ball)){
 			try {
-			    Thread.sleep(20);
+			    Thread.sleep(50);
 			} catch(InterruptedException e) {
 				System.out.println(e);
 			}
 			ball.rolling();
 			repaint();
 		}
+		repaint();
 	}
 	
+	public Ball getBall() {
+		return ball;
+	}
+
+	public Canon getCanon() {
+		return canon;
+	}
+
+	public Bullet getBullet() {
+		return bullet;
+	}
+
+	public Cake getCake() {
+		return cake;
+	}
+
 	// mouse methods
 	@Override
 	public void mouseClicked(MouseEvent arg0) {}

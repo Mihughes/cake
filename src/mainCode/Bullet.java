@@ -1,28 +1,35 @@
 package mainCode;
 
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.geom.Ellipse2D;
+
+import javax.swing.ImageIcon;
 
 public class Bullet {
 	private double x;
 	private double y;
 	private double velocity;
+	private double angle;
+	private final static double GRAVITY = 9.81;
+	private Image bullet;
 	
 	public Bullet(){
 		this.x = 200;
 		this.y = 80;
-		this.velocity = 100;
+		this.velocity = 10;
 	}
 	
 	public Bullet(double x, double y, double velocity){
 		this.x = x;
 		this.y = y;
 		this.velocity = velocity;
+		bullet = new ImageIcon("bullet.png").getImage();
 	}
 	
 	public void draw(Graphics g) {
-		g.drawString("Bullet", (int) x, (int) y);
+		g.drawImage(bullet, (int) x, (int) y, null);
 	}
 	
 	public void setVelocity(double velocity) {
@@ -30,7 +37,7 @@ public class Bullet {
 	}
 	
 	public void setInitialAngle(double angle) {
-		
+		this.angle = angle;
 	}
 	
 	public boolean intersect(Ball ball) {
@@ -53,14 +60,24 @@ public class Bullet {
 		this.y = y;
 	}
 
-	public double calculateXPosition(double d) {
-		// TODO Auto-generated method stub
-		return 0;
+	public double calculateXPosition(double time) {
+		// X Displacement
+		// DeltaX = VXo*t
+		
+		// VXo = V*cos(angle);
+		double VXo = velocity*Math.cos(Math.toRadians(angle));
+		double DeltaX = VXo*time;
+		return Math.round(x+DeltaX);
 	}
 
 	public double calculateYPosition(double time) {
-		// TODO Auto-generated method stub
-		return 0;
+		// Y Displacement
+		// DeltaY = VYo*t - 1/2*g*t^2
+		
+		// VYo = V*sin(angle)
+		double DeltaY = velocity*Math.sin(Math.toRadians(angle))*time - 0.5*GRAVITY*Math.pow(time, 2);
+		
+		return Math.round(y - DeltaY);
 	}
 
 }
