@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -19,7 +20,7 @@ public class SaveTheCake extends JPanel implements MouseListener{
 	public static final int OFFSET = 50;
 	private Ball ball;
 	private Canon canon;
-	private Bullet bullet;
+	private ArrayList<Bullet> bullets;
 	private Cake cake;
 	private Image bground;
 	
@@ -27,7 +28,8 @@ public class SaveTheCake extends JPanel implements MouseListener{
 		this.bground = new ImageIcon("background.png").getImage();
 		ball = new Ball(FRAME_SIZE_X - OFFSET - 15, OFFSET - 40 , OFFSET, Color.GREEN);
 		canon = new Canon(10, FRAME_SIZE_Y - 80, 45);
-		bullet = new Bullet(100, FRAME_SIZE_Y - OFFSET, OFFSET);
+		bullets = new ArrayList<Bullet>();
+		//(100, FRAME_SIZE_Y - OFFSET, OFFSET);
 		cake = new Cake(FRAME_SIZE_X - 230, FRAME_SIZE_Y - 150);
 	}
 	
@@ -35,9 +37,10 @@ public class SaveTheCake extends JPanel implements MouseListener{
 		super.paintComponents(g);
 		g.drawImage(bground, 1, 1, null);
 		canon.draw(g);
-		bullet.draw(g);
 		cake.draw(g);
 		ball.draw(g);
+		for (Bullet i:bullets)
+			i.draw(g);
 	}
 	
 	public void mainFlow(){
@@ -47,6 +50,8 @@ public class SaveTheCake extends JPanel implements MouseListener{
 			} catch(InterruptedException e) {
 				System.out.println(e);
 			}
+			for (Bullet i: bullets)
+				i.flying();
 			ball.rolling();
 			repaint();
 		}
@@ -61,8 +66,8 @@ public class SaveTheCake extends JPanel implements MouseListener{
 		return canon;
 	}
 
-	public Bullet getBullet() {
-		return bullet;
+	public ArrayList<Bullet> getBullet() {
+		return bullets;
 	}
 
 	public Cake getCake() {

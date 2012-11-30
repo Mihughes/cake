@@ -9,13 +9,12 @@ import javax.swing.JTextArea;
 
 public class AnglePanel extends JPanel{
 	private JLabel label;
-	private JTextArea currentAngle;
+	private JLabel currentAngle;
 	
 	public AnglePanel(JSlider slider){
 		setLayout(new BorderLayout());
 		label = new JLabel("Angle");
-		currentAngle = new JTextArea();
-		currentAngle.setEditable(false);
+		currentAngle = new JLabel();
 		currentAngle.setText(((Integer) slider.getValue()).toString());
 		add(label, BorderLayout.NORTH);
 		add(currentAngle, BorderLayout.CENTER);

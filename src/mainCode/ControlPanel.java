@@ -1,6 +1,8 @@
 package mainCode;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -31,6 +33,7 @@ public class ControlPanel extends JPanel{
 		angleSlider.setPaintTicks(true);
 		angleSlider.setPaintLabels(true);
 		panel = new AnglePanel(angleSlider);
+		shootButton.addActionListener(new ButtonListener());
 		add(panel, BorderLayout.NORTH);
 		add(angleSlider, BorderLayout.CENTER);
 		add(shootButton, BorderLayout.SOUTH);
@@ -42,5 +45,15 @@ public class ControlPanel extends JPanel{
 	    	gamePanel.getCanon().setAngle(angleSlider.getValue());
 	    	panel.setText(angleSlider.getValue());
 	    }
+	}
+	
+	class ButtonListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			double angle = angleSlider.getValue();
+			gamePanel.getBullet().add(new Bullet(50, 425,  30, angle));
+		}
+		
 	}
 }

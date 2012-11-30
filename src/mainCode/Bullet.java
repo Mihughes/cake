@@ -21,10 +21,11 @@ public class Bullet {
 		this.velocity = 10;
 	}
 	
-	public Bullet(double x, double y, double velocity){
+	public Bullet(double x, double y, double velocity, double angle){
 		this.x = x;
 		this.y = y;
 		this.velocity = velocity;
+		this.angle = angle;
 		bullet = new ImageIcon("bullet.png").getImage();
 	}
 	
@@ -80,4 +81,15 @@ public class Bullet {
 		return Math.round(y - DeltaY);
 	}
 
+	public void flying(){
+		setPosition(calculateXPosition(1), calculateYPosition(1));
+	}
+
+	public double getX() {
+		return x;
+	}
+
+	public double getY() {
+		return y;
+	}
 }
