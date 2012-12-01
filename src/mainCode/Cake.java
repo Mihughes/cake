@@ -27,8 +27,11 @@ public class Cake {
 	}
 	
 	public void draw(Graphics g) {
-		if (smashed)
+		if (smashed) {
 			this.cake = new ImageIcon("smashed.png").getImage();
+		} else {
+			this.cake = new ImageIcon("cake.png").getImage();  // 11/30
+		}
 		g.drawImage(cake, (int) x, (int) y, null);
 	}
 	
@@ -53,6 +56,10 @@ public class Cake {
 					return true;
 		}
 		return false;
+	}
+	
+	public void reset() {  // 11/30
+		this.smashed = false;
 	}
 	
 

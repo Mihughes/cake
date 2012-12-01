@@ -52,8 +52,15 @@ public class Ball {
 	}
 	
 	public void explode () {
-		System.out.println("at Ball.explode()");
+		color = Color.RED; //11/30
+		//System.out.println("at Ball.explode()");
 	}
+	
+	public void setColor(Color color) { // 11/30
+		this.color = color;
+	}
+	
+
 	
 	public boolean intersect() {
 		return false;
@@ -94,5 +101,9 @@ public class Ball {
 
 	public double getDiameter() {
 		return diameter;
+	}
+	
+	public void setDiameter(double diameter) {
+		this.diameter = diameter;
 	}
 }
