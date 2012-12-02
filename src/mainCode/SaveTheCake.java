@@ -24,6 +24,7 @@ public class SaveTheCake extends JPanel implements MouseListener{
 	private ArrayList<Bullet> bullets;
 	private Cake cake;
 	private Image bground;
+	private boolean panicking = false;
 	int restart = JOptionPane.YES_NO_OPTION;   //11/30
 	
 	
@@ -41,6 +42,8 @@ public class SaveTheCake extends JPanel implements MouseListener{
 		canon.draw(g);
 		cake.draw(g);
 		ball.draw(g);
+		if (panicking)
+			cake.drawPanick(g);
 		for (Bullet i:bullets)
 			i.draw(g);
 	}
@@ -67,9 +70,11 @@ public class SaveTheCake extends JPanel implements MouseListener{
 					}
 				}
 				ball.rolling();
-				
+				if (cake.inPanick(ball))
+					panicking = true;
 				repaint();
 			}
+			panicking = false;
 			repaint();
 			// 11/30/2012
 			restart = JOptionPane.showConfirmDialog(null, "Do you want to shoot again?", "Welcome to Save The Cake", JOptionPane.YES_NO_OPTION);

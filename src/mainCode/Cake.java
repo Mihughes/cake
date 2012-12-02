@@ -13,6 +13,7 @@ public class Cake {
 	private double y;
 	private Image cake;
 	private boolean smashed;
+	private Image panic;
 	
 	public Cake(){
 		this.x = 450;
@@ -21,6 +22,7 @@ public class Cake {
 	
 	public Cake(double x, double y){
 		this.cake = new ImageIcon("cake.png").getImage();
+		this.panic = new ImageIcon("panic.png").getImage();
 		this.x = x;
 		this.y = y;
 		this.smashed = false;
@@ -35,8 +37,8 @@ public class Cake {
 		g.drawImage(cake, (int) x, (int) y, null);
 	}
 	
-	private void drawPanick(Graphics g) {
-		g.drawString("Panic cake", (int) x, (int) y);
+	public void drawPanick(Graphics g) {
+		g.drawImage(panic, (int) x - 60, (int) y - 100, null);
 	}
 	
 	public boolean intersect(Ball ball){
@@ -50,7 +52,7 @@ public class Cake {
 	}
 
 	public boolean inPanick(Ball ball) {
-		for (int i = (int) x; i < x + 101; i++){
+		for (int i = (int) x; i < x + 151; i++){
 			for (int j = (int) y; j > y - 151; j--)
 				if (Math.sqrt((ball.getX()-x)*(ball.getX()-x) + (ball.getY()-y)*(ball.getX()-x)) <= ball.getDiameter()/2)
 					return true;

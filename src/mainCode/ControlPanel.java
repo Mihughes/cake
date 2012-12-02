@@ -48,7 +48,6 @@ public class ControlPanel extends JPanel{
 	}
 	
 	class ButtonListener implements ActionListener{
-
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			double angle = angleSlider.getValue();
