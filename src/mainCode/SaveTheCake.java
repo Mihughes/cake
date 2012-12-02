@@ -63,6 +63,7 @@ public class SaveTheCake extends JPanel implements MouseListener{
 						ball.explode();
 						if(ball.getDiameter() < 1) {
 							JOptionPane.showMessageDialog(null, "You saved the cake!", "Welcome to Save The Cake", JOptionPane.INFORMATION_MESSAGE);
+							restartGame();
 							break;
 						}
 						//System.out.println("hit it");

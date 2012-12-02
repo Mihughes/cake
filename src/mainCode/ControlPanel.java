@@ -3,12 +3,18 @@ package mainCode;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JTextArea;
+import javax.swing.KeyStroke;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.ChangeEvent;
@@ -34,6 +40,7 @@ public class ControlPanel extends JPanel{
 		angleSlider.setPaintLabels(true);
 		panel = new AnglePanel(angleSlider);
 		shootButton.addActionListener(new ButtonListener());
+		keyBinding();
 		add(panel, BorderLayout.NORTH);
 		add(angleSlider, BorderLayout.CENTER);
 		add(shootButton, BorderLayout.SOUTH);
@@ -53,6 +60,33 @@ public class ControlPanel extends JPanel{
 			double angle = angleSlider.getValue();
 			gamePanel.getBullet().add(new Bullet(50, 425,  30, angle));
 		}
+	}
+	
+	public void keyBinding(){
+		Action moveUp = new AbstractAction() {
+		    public void actionPerformed(ActionEvent e) {
+		        angleSlider.setValue(angleSlider.getValue() + 1);
+		    }
+		};
+		Action moveDown = new AbstractAction() {
+		    public void actionPerformed(ActionEvent e) {
+		        angleSlider.setValue(angleSlider.getValue() - 1);
+		    }
+		};
+		angleSlider.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("UP"), "upArrow");
+		angleSlider.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("LEFT"), "upArrow");
+		angleSlider.getActionMap().put("upArrow", moveUp);
+		angleSlider.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("DOWN"), "downArrow");
+		angleSlider.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("RIGHT"), "downArrow");
+		angleSlider.getActionMap().put("downArrow", moveDown);
 		
+		Action shoot = new AbstractAction() {
+		    public void actionPerformed(ActionEvent e) {
+		    	double angle = angleSlider.getValue();
+				gamePanel.getBullet().add(new Bullet(50, 425,  30, angle));
+		    }
+		};
+		shootButton.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("SPACE"), "newButtlet");
+		shootButton.getActionMap().put("newButtlet", shoot);
 	}
 }
