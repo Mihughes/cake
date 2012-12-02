@@ -32,9 +32,7 @@ public class SaveTheCake extends JPanel implements MouseListener{
 		ball = new Ball(FRAME_SIZE_X - OFFSET - 15, OFFSET - 40 , OFFSET, Color.GREEN);
 		canon = new Canon(10, FRAME_SIZE_Y - 80, 45);
 		bullets = new ArrayList<Bullet>();
-		//(100, FRAME_SIZE_Y - OFFSET, OFFSET);
 		cake = new Cake(FRAME_SIZE_X - 230, FRAME_SIZE_Y - 150);
-	
 	}
 	
 	public void paintComponent(Graphics g) {
@@ -104,6 +102,10 @@ public class SaveTheCake extends JPanel implements MouseListener{
 		return cake;
 	}
 
+	public void restartGame(){
+		ball.explode();
+		ball = new Ball(FRAME_SIZE_X - OFFSET - 15, OFFSET - 40 , OFFSET, Color.GREEN);
+	}
 	// mouse methods
 	@Override
 	public void mouseClicked(MouseEvent arg0) {}

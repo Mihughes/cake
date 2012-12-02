@@ -19,7 +19,7 @@ public class Game extends JFrame{
 		controlPanel = new ControlPanel(gamePanel);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
-		setSize(SaveTheCake.FRAME_SIZE_X + 90, SaveTheCake.FRAME_SIZE_Y - 10);
+		setSize(SaveTheCake.FRAME_SIZE_X + 88, SaveTheCake.FRAME_SIZE_Y + 12);
 		addFeatures();
 		setVisible(true);
 		gamePanel.mainFlow();
@@ -28,19 +28,18 @@ public class Game extends JFrame{
 	public void addFeatures(){
 		add(gamePanel, BorderLayout.CENTER);
 		add(controlPanel, BorderLayout.WEST);
-		/*JMenuBar menuBar = new JMenuBar();
+		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
-		menuBar.add(createFileMenu());*/
+		menuBar.add(createFileMenu());
 	}
 	
-	/*public JMenu createFileMenu(){
+	public JMenu createFileMenu(){
 		JMenu menu = new JMenu("File");
 		JMenuItem newGame = new JMenuItem("New Game");
 		class NewGameListener implements ActionListener {
 			public void actionPerformed(ActionEvent e)
 			{
-				new Game();
-				Game.this.dispose();
+				gamePanel.restartGame();
 			}
 		}
 		newGame.addActionListener(new NewGameListener());
@@ -56,7 +55,7 @@ public class Game extends JFrame{
 		exitItem.addActionListener(new ExitItemListener());
 		menu.add(exitItem);
 		return menu;
-	}*/
+	}
 	
 	public static void main(String[] args) {
 		JOptionPane.showMessageDialog(null, "Please be ready, use the arrow keys to aim and Shoot button to shoot", "Welcome to Save The Cake", JOptionPane.INFORMATION_MESSAGE);
