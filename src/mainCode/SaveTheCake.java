@@ -72,7 +72,7 @@ public class SaveTheCake extends JPanel{
 				}
 				ball.rolling();						// Move the ball
 				if (cake.inPanick(ball))			// cake panics when ball gets close
-					panicking = true;
+				panicking = true;
 				repaint();
 			}
 			panicking = false;

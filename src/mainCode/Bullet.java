@@ -59,6 +59,7 @@ public class Bullet {
 	}
 	
 	// Calculate position of bullets over time, taking gravity into account
+
 	public double calculateXPosition(double time) {
 		// X Displacement
 		// DeltaX = VXo*t
