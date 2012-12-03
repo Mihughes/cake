@@ -41,6 +41,7 @@ public class Bullet {
 		this.angle = angle;
 	}
 	
+	// Check to see if the bullet is touching ball
 	public boolean intersect(Ball ball) {
 		Ellipse2D.Double circle = new Ellipse2D.Double(ball.getX(), ball.getY(), ball.getDiameter(), ball.getDiameter());
 		for (int i = (int) x - 5; i < x + 6; i++){
@@ -51,16 +52,13 @@ public class Bullet {
 		}
 		return false;
 	}
-	
-	public boolean isHittingBall() {
-		return true;
-	}
-	
+
 	public void setPosition(double x, double y) {
 		this.x = x;
 		this.y = y;
 	}
-
+	
+	// Calculate position of bullets over time, taking gravity into account
 	public double calculateXPosition(double time) {
 		// X Displacement
 		// DeltaX = VXo*t
@@ -81,6 +79,7 @@ public class Bullet {
 		return Math.round(y - DeltaY);
 	}
 
+	// bullet fly certain distance for each cycle
 	public void flying(){
 		setPosition(calculateXPosition(1), calculateYPosition(1));
 	}

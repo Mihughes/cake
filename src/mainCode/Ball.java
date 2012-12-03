@@ -42,23 +42,21 @@ public class Ball {
 		g.setColor(color);
 		g.fillOval((int) x, (int) y, (int) diameter, (int) diameter);
 	}
-	
-	public void getIcon () {
-		System.out.println("at Ball.getIcon()");
-	}
-	
+
+	// ball rolling down certain distance per cycle
 	public void rolling() {
 		setPosition(calculateXPosition(3),calculateYPosition(3));
 	}
 	
 	public void explode () {
-		System.out.println("at Ball.explode()");
+		color = Color.RED; //11/30
+		//System.out.println("at Ball.explode()");
 	}
 	
-	public boolean intersect() {
-		return false;
+	public void setColor(Color color) { // 11/30
+		this.color = color;
 	}
-	
+
 	public void setPosition(double x, double y) {
 		this.x = x;
 		this.y = y;
@@ -67,7 +65,8 @@ public class Ball {
 	public Point2D.Double getPosition() {
 		return new Point2D.Double();
 	}
-
+	
+	// Calculate the next position of the ball
 	public double calculateXPosition(double d) {
         return Math.round(x - (d  * Math.sin(Math.toRadians(slope)))); 
     }
@@ -94,5 +93,9 @@ public class Ball {
 
 	public double getDiameter() {
 		return diameter;
+	}
+	
+	public void setDiameter(double diameter) {
+		this.diameter = diameter;
 	}
 }

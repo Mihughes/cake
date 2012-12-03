@@ -34,6 +34,7 @@ public class Canon {
 		g.drawImage(canon, (int) x, (int) y, null);
 	}
 	
+	// draw angle ticks
 	public void drawAngle(Graphics g) {
 		g.setColor(Color.YELLOW);
 		int originalX = 20;
@@ -50,6 +51,7 @@ public class Canon {
 		
 	}
 	
+	// draw the aiming line
 	public void drawAim(Graphics g) {
 		g.setColor(Color.RED);
 		int originalX = 20;
